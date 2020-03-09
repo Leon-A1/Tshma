@@ -8,30 +8,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
     <title>Dashboard</title>
   </head>
-<body style='background-size:1600px 1000px;background-image:url({{url_for('static', filename='img/EazyCrypto7.jpg')}})'>
-
+<!-- <body style='background-size:1600px 1000px;background-image:url({{url_for('static', filename='img/EazyCrypto7.jpg')}})'> -->
+<body style="background-color: azure;">
+ 
   <div style="padding-top:5px;"class="sidebar-container">
     <div class="sidebar-logo">
-      <a style="color:white;"href="/">Eazy Crypto</a>
+      <a style="color:white;"href="/">Tshma</a>
     </div>
     <ul class="sidebar-navigation">
       <li>
-        <a href="/education">Education</a>
+        <a href="/education">news</a>
       </li>
 
       <li>
         <a href="/deposit">
-          <i class="fa fa-users" aria-hidden="true"></i> Deposit
+          <i class="fa fa-users" aria-hidden="true"></i> Donate
         </a>
 
-      </li>
-      <li>
-        <a href="/withdraw">
-          <i class="fa fa-users" aria-hidden="true"></i> Withdraw
-        </a>
       </li>
       <li>
         <a href="/about">
@@ -50,299 +46,62 @@
 
       <div  class="row">
         <div style="width:35%;"class="cointaner">
-          <div style="margin-top:-100px;" class="col">
+ 
+         <div class="row">
 
-          <h2 style='padding-top:100px;font-weight: 2000;text-transform: uppercase;'>{{ my_name }} {{ my_last_name }}</h2>
-          <hr>
-          <p>Last login: {{ last_login }}</p>
-          <p>Balance: {{ balance }}$</p>
-          <p>Recent Profits: <span style="color:#1FA308;">{{ profits_amount_total }}</span>$</p>
-          <p>Recent Loses:   <span style="color:#B81215;">{{ loses_amount_total }}</span>$</p>
-          <p>Price of BTC now: {{ btc_price_clean }}$</p>
-          <p>BTC Balance: {{ balance_in_btc }}</p>
+                <div class="col">
 
 
-          </div>
-        </div>
-        <div class="col">
-                    <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container">
-            <div style="right:0;left:0;position:absolute !important;height:300px !important;" id="tradingview_80c40"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BITBAY-BTCUSD/" rel="noopener" target="_blank"><span class="blue-text">BTCUSD Chart</span></a> by TradingView</div>
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-            <script type="text/javascript">
-            new TradingView.widget(
-            {
-            "autosize": true,
-            "symbol": "BITBAY:BTCUSD",
-            "interval": "60",
-            "timezone": "Etc/UTC",
-            "theme": "dark",
-            "style": "1",
-            "locale": "en",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "hide_top_toolbar": true,
-            "save_image": false,
-            "show_popup_button": true,
-            "popup_width": "1000",
-            "popup_height": "650",
-            "container_id": "tradingview_80c40"
-          }
-            );
-            </script>
-          </div>
-          <!-- TradingView Widget END -->
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <br>
-          <h6 style="text-align:center;color:gray;">{{ demo_message }}</h6>
-          <br>
-        </div>
-      </div>
+                    <div style="border:solid 0.1px;border-color:black;text-align:center;"  class="table-responsive">
+                      <table  style="margin:0px;padding-bottom:0px" class="table">
+                        <thead>
+                          <!-- <h3 style="padding:5px">TRADING HISTORY</h3> -->
 
-      <div class="row">
+                          <tr>
+                            <h3 style="padding:5px;font-weight:1200;">Points</h3>
 
-          <div class="col">
+                          </tr>
+                          <tr>
+                            <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Asset</th>
+                            <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Position</th>
+                            <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Status</th>
+                            <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Amount</th>
+                            <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Date</th>
+
+                          </tr>
 
 
-                <div style="border:solid 0.1px;border-color:black;text-align:center;"  class="table-responsive">
-                  <table  style="margin:0px;padding-bottom:0px" class="table">
-                    <thead>
 
-                      <tr>
-                        <h3 style="padding:1px 1px 1px 1px;margin:0 0 0 0;">Transaction History</h3>
+                        </thead>
+                        <tbody>
+                          {% for trade in tradinghistory %}
 
-                      </tr>
-                      <tr>
-                        <th style="border:solid 0.2px;border-color:black;text-align:center;padding:3px 3px 3px 3px;margin:0 0 0 0;">Date</th>
-                        <th style="border:solid 0.2px;border-color:black;text-align:center;padding:3px 3px 3px 3px;margin:0 0 0 0;">Transaction</th>
-                        <th style="border:solid 0.2px;border-color:black;text-align:center;padding:3px 3px 3px 3px;margin:0 0 0 0;">Amount</th>
-                        <th style="border:solid 0.2px;border-color:black;text-align:center;padding:3px 3px 3px 3px;margin:0 0 0 0;">Method</th>
-                        <th style="border:solid 0.2px;border-color:black;text-align:center;padding:3px 3px 3px 3px;margin:0 0 0 0;">Status</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                      {% for t in transactionhistory %}
-
-                      <tr>
-                        <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:2px 2px 2px 2px;;margin:0 0 0 0;">{{ t.timestamp.strftime(('%H:%M %d.%m.%y')) }}</td>
-                        <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:2px 2px 2px 2px;;margin:0 0 0 0;">{{ t.action }}</td>
-                        <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:2px 2px 2px 2px;;margin:0 0 0 0;">{{ t.amount }}</td>
-                        <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:2px 2px 2px 2px;;margin:0 0 0 0;">{{ t.method }}</td>
-                        <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:2px 2px 2px 2px;;margin:0 0 0 0;">{{ t.status }}</td>
-
-                      </tr>
+                          <tr>
+                            <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.asset}}</td>
+                            <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.position}}</td>
+                            <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.outcome}}</td>
+                            <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.amount}}$</td>
+                            <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.timestamp.strftime('%d.%m.%Y UTC')}}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div style="text-align:center;padding-top:5px;"class="container">
+                      {% for page_num in old_trades.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                      {% if page_num %}
+                        {% if old_trades.page == page_num %}
+                          <a class="btn btn-dark mb-4" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                        {% else %}
+                          <a class="btn btn-outline-dark mb-4" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                        {% endif %}
+                      {% else %}
+                        ...
+                      {% endif %}
                       {% endfor %}
 
-                    </tbody>
-                  </table>
-                </div>
-                <div style="text-align:center;padding-top:5px;"class="container">
-                  {% for page_num in transactions.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-                  {% if page_num %}
-                    {% if transactions.page == page_num %}
-                      <a class="btn btn-dark mb-4" href="{{ url_for('dashboard', transactionpage=page_num) }}">{{ page_num }}</a>
-                    {% else %}
-                      <a class="btn btn-outline-dark mb-4" href="{{ url_for('dashboard', transactionpage=page_num) }}">{{ page_num }}</a>
-                    {% endif %}
-                  {% else %}
-                    ...
-                  {% endif %}
-                  {% endfor %}
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div  class="col">
-              <div style="border:none;text-align:center;"  class="table-responsive">
-                <table  style="width:80%;margin:0px;padding-bottom:0px" class="table">
-                  <thead>
-
-                    <h4 >WINNING</h4>
-                  </thead>
-                  <tbody>
-                    {% for trade in trades %}
-                    {% if trade.outcome == 'WIN ' %}
-
-
-                    <tr>
-                      <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{ trade.asset }}</td>
-                      <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{ trade.position }}</td>
-                      <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;"></strong><span style="color:green">{{ trade.outcome }}</span></td>
-                      <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{trade.amount }}$</td>
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-            <div  class="col">
-              <div style="border:none;text-align:center;"  class="table-responsive">
-                <table  class="table">
-                  <thead>
-                        <h4 >LOSING</h4>
-                    </thead>
-                    <tbody>
-                        {% for trade in trades %}
-                        {% if trade.outcome == 'LOSE' %}
-
-                        <tr>
-                          <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{ trade.asset }}</td>
-                          <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{ trade.position }}</td>
-                          <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;"></strong><span style="color:red">{{ trade.outcome }}</span></td>
-                          <td style="border:none;padding:1px 1px 1px 1px;margin:0 0 0 0;">{{ trade.amount }}$</td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-
-
-
-        </div>
-
-      </div>
-      <div class="row">
-        <p>
-
-
-        </p>
-
-      </div>
-
-      <div class="row">
-        <div class="col">
-
-
-        <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-          <div style="right:0;left:0;position:absolute !important;height:450px !important;"  id="tradingview_86ade"></div>
-          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/KRAKEN-ETHUSD/" rel="noopener" target="_blank"><span class="blue-text">ETHUSD Chart</span></a> by TradingView</div>
-          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-          <script type="text/javascript">
-          new TradingView.widget(
-          {
-          "autosize": true,
-          "symbol": "KRAKEN:ETHUSD",
-          "interval": "60",
-          "timezone": "Etc/UTC",
-          "theme": "dark",
-          "style": "1",
-          "locale": "en",
-          "toolbar_bg": "#f1f3f6",
-          "enable_publishing": false,
-          "withdateranges": true,
-          "allow_symbol_change": true,
-          "save_image": false,
-          "show_popup_button": true,
-          "popup_width": "1000",
-          "popup_height": "650",
-          "container_id": "tradingview_86ade"
-        }
-          );
-          </script>
-        </div>
-        <!-- TradingView Widget END -->
-        </div>
-      </div>
-
-
-      <div class="row">
-        <p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-        </p>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col">
-
-
-
-        <div style="border:solid 0.1px;border-color:black;text-align:center;"  class="table-responsive">
-          <table  style="margin:0px;padding-bottom:0px" class="table">
-            <thead>
-              <!-- <h3 style="padding:5px">TRADING HISTORY</h3> -->
-
-              <tr>
-                <h3 style="padding:5px;font-weight:1200;">Trading History</h3>
-
-              </tr>
-              <tr>
-                <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Asset</th>
-                <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Position</th>
-                <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Status</th>
-                <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Amount</th>
-                <th style="border:solid 0.2px;border-color:black;text-align:center;padding:5px">Date</th>
-
-              </tr>
-
-
-
-            </thead>
-            <tbody>
-              {% for trade in tradinghistory %}
-
-              <tr>
-                <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.asset}}</td>
-                <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.position}}</td>
-                <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.outcome}}</td>
-                <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.amount}}$</td>
-                <td style="border:solid 0.1px;border-color:black;font-size:90%;padding:1px;">{{trade.timestamp.strftime('%d.%m.%Y UTC')}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-        <div style="text-align:center;padding-top:5px;"class="container">
-          {% for page_num in old_trades.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-          {% if page_num %}
-            {% if old_trades.page == page_num %}
-              <a class="btn btn-dark mb-4" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
-            {% else %}
-              <a class="btn btn-outline-dark mb-4" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
-            {% endif %}
-          {% else %}
-            ...
-          {% endif %}
-          {% endfor %}
-
-        </div>
+                    </div>
 
 
       </div>
