@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<!--     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
     <title>Home</title>
   </head>
-  <body style='background-image:url({{url_for('static', filename='img/EazyCrypto4.jpg')}});'>
+<!--   <body style='background-image:url({{url_for('static', filename='img/EazyCrypto4.jpg')}});'> -->
+  <body style="background-color:gray;">
 
     <nav class="navbar fixed-top navbar-light bg-light">
-      <a class="navbar-brand" href="/">EC Investments</a>
+      <a class="navbar-brand" href="/">Tsham</a>
 
             <a style="font-size:120%;color:gray;" class="nav-item nav-link" href="/login">Members</a>
     </nav>
@@ -21,19 +22,15 @@
     <div style="font-family: 'Roboto Slab', serif;" class="container">
       <div class="row">
         <div style="padding-top:85px;text-align:center;font-size:120%;" class="col">
-          <h1 style='color: white;font-weight:900'>EAZY CRYPTO</h1>
+          <h1 style='color: white;font-weight:900'>Tshma</h1>
           <hr>
-          <h3 style='color: white;'><strong>Join Thousands Of Satisfied Members</strong></h3><br>
-          <h3 style='color: white;'><strong>BTC, ETH, XRP, LTC, EOS, BNB All In One Platform</strong></h3><br>
-          <!-- <h3 style='color: white;'><strong>Automated Solid Passive Investing</strong></h3><br> -->
-          <h3 style='color: white;'><strong>Decentralized Investment Portfolio</strong></h3><br>
-          <h3 style='color: white;'><strong>Deposit & WD in Bitcoin, Zero Sensitive Information Required</strong></h3><br>
+          <p>to be continued ... </p>
         </div>
         <div style="padding-top:75px;" class="col">
         </div>
         <div style="padding-top:85px;font-family: 'Roboto Slab', serif;" class="col">
           <form class="form-signin" style='text-align:center;' action="/" method="POST">
-            <h2 style="color:white;font-weight:900"><strong>FREE DEMO ACCOUNT</strong></h2>
+            <h2 style="color:white;font-weight:900"><strong>Sign up</strong></h2>
             {% if message %}
             <p style="color:white;"class="message"><strong>{{ message }}</strong></p>
             {% endif %}
@@ -85,106 +82,16 @@
 
 <!-- Testamonials -->
 
-    <div style="text-align:center;color:white;" class="container">
-
-      <h1 >Testamonials</h1>
-      <div class="row">
-        <div class="col">
-          <h3>John .T.</h3>
-          <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/JohnT.jpg')}}" alt="JohnT">
-          <p>"Tried trading cryptos in the past but it didn't work, I never believed making money would ever be this easy, the system takes care of everything."</p>
-        </div>
-        <div class="col">
-          <h3>Sarah .W.</h3>
-          <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/SarahW.jpg')}}" alt="SarahW">
-          <p>"I have been a real account member for over two years now, this company really changes people lives."</p>
-
-        </div>
-
-        <div class="col">
-          <h3>OJ .R.</h3>
-          <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/OJR.jpg')}}" alt="OJR">
-          <p>"My dad was the one who introduced me to EC, who could imagine we can be crypto-currency investors."</p>
-
-        </div>
-        </div>
-      <div class="row">
-        <div class="col">
-          <h3>Donna .G.</h3>
-          <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/DonnaG.jpg')}}" alt="DonnaG">
-          <p>"When a close friend told me about Eazy Crypto, naturally I was skeptic, got a demo account for free, after only 2 days ,I made my first deposit."</p>
-        </div>
-      <div class="col">
-        <h3>Bradly .W.</h3>
-        <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/BradlyW.jpg')}}" alt="BradlyW">
-        <p>"Extremely simple user interface, my mom always refused to use a computer, but even she has an account and always checks her dashboard weekly."</p>
-      </div>
-      <div class="col">
-        <h3>Nathalie .B.</h3>
-          <img style="max-width:150px;padding-top:5px;padding-bottom:5px;" src="{{url_for('static', filename='img/NathalieB.jpg')}}" alt="NathalieB">
-          <p>"It feels great to help my partner financially around the house and be able to invest in crypto-currencies without understanding them completely."</p>
-        </div>
-      </div>
-
+    
     </div>
-  </div>
+  
 
     <hr>
 
 <!-- TradingView Widget BEGIN -->
 
       <div class="row">
-        <div class="col">
-
-          <div class="tradingview-widget-container">
-  <div id="tradingview_75bd4"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/KRAKEN-ETHUSD/" rel="noopener" target="_blank"><span class="blue-text">ETHUSD Chart</span></a> by TradingView</div>
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script type="text/javascript">
-  new TradingView.widget(
-  {
-  "width": 500,
-  "height": 500,
-  "symbol": "KRAKEN:ETHUSD",
-  "interval": "D",
-  "timezone": "Etc/UTC",
-  "theme": "Light",
-  "style": "1",
-  "locale": "en",
-  "toolbar_bg": "#f1f3f6",
-  "enable_publishing": false,
-  "allow_symbol_change": true,
-  "container_id": "tradingview_75bd4"
-}
-            );
-            </script>
-          </div>
-          <!-- TradingView Widget END -->
-          </div>
-          <div class="col">
-          <div class="tradingview-widget-container">
-    <div id="tradingview_6f3f1"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-    new TradingView.widget(
-    {
-    "width": 500,
-    "height": 500,
-    "symbol": "BTCUSD",
-    "interval": "D",
-    "timezone": "Etc/UTC",
-    "theme": "Light",
-    "style": "1",
-    "locale": "en",
-    "toolbar_bg": "#f1f3f6",
-    "enable_publishing": false,
-    "allow_symbol_change": true,
-    "container_id": "tradingview_6f3f1"
-  }
-            );
-            </script>
-          </div>
+        
 
         </div>
     </div>
@@ -196,11 +103,7 @@
       <br>
       <br>
 
-  <h6 style="color:white;text-align:center;padding-left:50px;padding-right:50px;font-size:80%;background-color:black;padding-bottom:10px;padding-top:10px;margin:0;"><strong>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. less than 1% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
-
-EazyCrypto limited is authorised and regulated by the UK Financial Conduct Authority (FRN 524217) with its registered and trading office at Level 37, One Canada Square, Canary Wharf, E14 5AA, London, United Kingdom (company number 07265448).
-
-Copyright 2020 © EazyCrypto</strong> <br> <a href="/contact">Contact-Us</a></h6>
+  <h6 style="color:white;text-align:center;padding-left:50px;padding-right:50px;font-size:80%;background-color:black;padding-bottom:10px;padding-top:10px;margin:0;"><strong>Tshma Inc. 2020</strong> <br> <a href="/contact">Contact-Us</a></h6>
   </body>
 
 </html>
