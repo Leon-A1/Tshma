@@ -1,0 +1,69 @@
+{% extends "BaseProfile.html" %}
+{% block one %}
+    <div style="text-align:center;" class="container">
+
+
+      <h1>Deposit</h1>
+
+      <hr>
+      <h6>We do not require verification. <br>
+      We do not ask for private documents.<br>
+
+
+      An email confirmation will be sent after the transfer has been made.<br>
+      Please allow up to 24 hours for the funds to reflect on your Trading Account.<br>
+      Transactions are made with BTC in order to protect the identity and privacy of our investors.
+      </h6>
+      <p><strong>Finish the deposit on your wallet and submit, our financial department will be ready for the arrival of the funds.</strong></p>
+      <br>
+      <p><strong>All deposits are processed automatically and monitored by our financial department.</strong></p>
+      <p>
+      Hey {{ my_name }},<br> we appriciate your business. <br>
+      Account email adress: {{ my_email }}
+      </p>
+
+      <br>
+
+      <hr>
+      <h6>Current Account Balance: {{ balance }}$</h6>
+
+      <hr>
+      <br>
+      <h6><strong>Please make sure you are depositing BTC.</strong></h6>
+      <h6><strong>Use this adress for the Deposit :  14L2PvRsAys8tKS8nihT5kderEvDi5M2PK</strong></h6>
+      <a href="bitcoin:14L2PvRsAys8tKS8nihT5kderEvDi5M2PK">Bitcoin link</a>
+      <h6><strong>or scan the barcode:</strong></h6>
+
+      <br>
+        <img style="max-width:200px;" src="{{url_for('static', filename='img/wallet.jpg')}}" alt="">
+        <br>
+        <br>
+
+
+
+      <form  action="/deposit" method="POST">
+
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+
+              <div class="form-group">
+                <button  style='text-align:center;width:50%;background-color:gray;' type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+            </div>
+            <div class="col">
+            </div>
+          </div>
+
+          </form>
+
+      <br>
+
+
+    </div>
+
+
+
+{% endblock %}

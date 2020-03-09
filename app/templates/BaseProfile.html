@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Dashboard</title>
+  </head>
+  <body style='background-size:1600px 1000px;background-image:url({{url_for('static', filename='img/EazyCrypto7.jpg')}})'>
+    <!-- <nav class="navbar fixed-top navbar-light bg-dark"> -->
+      <!-- <a class="navbar-brand" href="/">EC Investments</a>
+      <ul>
+        <a style="font-size:100%;color:gray;" class="nav-item nav-link" href="/">Home</a>
+      </nav> -->
+
+    <div style="padding-top:5px;"class="sidebar-container">
+      <div class="sidebar-logo">
+      <a style="color:white;"href="/">Eazy Crypto</a>
+      </div>
+      <ul class="sidebar-navigation">
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+
+        <!-- <li>
+          <a href="#">
+            <i class="fa fa-home" aria-hidden="true"></i> Homepage
+          </a>
+        </li> -->
+        <li>
+          <a href="/education">Education</a>
+        </li>
+        <!-- <li>
+          <a href="/news">
+            <i class="fa fa-tachometer" aria-hidden="true"></i> News
+          </a>
+        </li> -->
+
+        <li>
+          <a href="/deposit">
+            <i class="fa fa-users" aria-hidden="true"></i> Deposit
+          </a>
+        </li>
+        <li>
+          <a href="/withdraw">
+            <i class="fa fa-users" aria-hidden="true"></i> Withdraw
+          </a>
+        </li>
+        <!-- <li>
+          <a href="/exchange">
+            <i class="fa fa-users" aria-hidden="true"></i> Exchange Guides
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i> Settings
+          </a>
+        </li>
+        <li> -->
+        <li>
+          <a href="/about">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> About
+          </a>
+        </li>
+
+
+        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+      </ul>
+    </div>
+
+
+    <div style="font-family: 'Roboto Slab', serif;font-size:100%;padding-top:0px;padding-left:200px;" class="container">
+      <div style="border:solid 1px;padding-bottom:50px;padding-top:40px;background-color:white;border-color:#2574A9" class="container">
+        {% block one %}
+        {% endblock %}
+        {%block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+
+</html>

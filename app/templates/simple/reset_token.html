@@ -1,0 +1,78 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Rest Password</title>
+  </head>
+
+  <body style='background-image:url({{url_for('static', filename='img/EazyCrypto7.jpg')}});text-align:center;background-size:1600px 1000px;background-position: relative ;'>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="/">EC Investments</a>
+
+      </nav>
+    <div style="font-family: 'Roboto Slab', serif"  class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <h1 style='text-align:center;padding-top: 100px;color:white'><strong>Reset Password</strong></h1>
+          <hr>
+            {% if message %}
+            <p style="color:white;"class="message"><strong>{{ message }}</strong></p>
+            {% endif %}
+
+              <div style='border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-color:white;' class="container">
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <div class="form-group">
+                            {{ form.password.label(class="form-control-label") }}
+                            {% if form.password.errors %}
+                                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.confirm_password.label(class="form-control-label") }}
+                            {% if form.confirm_password.errors %}
+                                {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm_password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.confirm_password(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
+                    </div>
+                </form>
+              </div>
+
+
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </body>
+
+</html>

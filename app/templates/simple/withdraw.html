@@ -1,0 +1,69 @@
+{% extends "BaseProfile.html" %}
+{% block one %}
+      <div style="text-align:center" class="container">
+
+
+      <h1>Withdraw</h1>
+      <hr>
+      <h6>We do not require verification. <br>
+      We do not ask for private documents.<br>
+
+
+      An email confirmation will be sent after the transfer has been made.<br>
+      Please allow up to 24 hours for the funds to reflect on your Wallet.<br>
+      Transactions are made with BTC in order to protect the identity and privacy of our investors.
+      </h6>
+      <p><strong>All withdrawals are processed automatically and monitored by our financial department.</strong></p>
+      <br>
+      <p>
+      Hey {{ my_name }},<br> we appriciate your business. <br>
+      Account email adress: {{ my_email }}
+      </p>
+
+      <br>
+
+      <hr>
+      <h6>Maximum amount to withdraw: {{ balance }}$</h6>
+      <hr>
+      <h6><strong>Please make sure you are using a BTC adress wallet.</strong></h6>
+      <br>
+
+
+
+      <form  action="/withdraw" method="POST">
+
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input style="text-align:center;width:100%;" type="text" class="form-control" id="amount" name="amount" placeholder="WD Amount in USD$">
+              </div>
+
+              <div class="form-group">
+                <input style="text-align:center;width:100%;" type="text" class="form-control" id="amount" name="amount" placeholder="1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2">
+              </div>
+
+              <div class="form-group">
+                <button  style='text-align:center;width:30%;background-color:gray;' type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+
+            </div>
+            <div class="col">
+            </div>
+          </div>
+
+          </form>
+
+
+      <br>
+
+
+
+
+      </div>
+
+
+
+{% endblock %}
