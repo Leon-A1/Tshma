@@ -67,47 +67,6 @@ btc_price_clean = BTCprice[2:3]+BTCprice[4:11]
 best_time = timenow.strftime('%M:%H %d-%m-%Y')
 
 ###### PROFIT FUNC ######
-def trademkr(user_id):
-
-    buyorsell = ['BUY ','SELL']
-    winorlose = ['WIN ','WIN ','WIN ', 'LOSE','WIN ','WIN ', 'LOSE']
-    assets = ['BTC/USD','ETH/USD','XRP/USD','LTC/USD','DAG/USD','BCH/USD','ETC/USD','BSV/USD','USD/EOS','USD/TRX','USD/BNB','ZEC/BTC','NEO/ETH','ADA/BTC','BTC/ETH','BNB/ETH','XLM/ADA', 'OKB/USD', 'XMR/USD', 'BTC/XMR']
-
-
-
-    howmany = 0
-    counter = 0
-
-    while howmany <= 10:
-
-        u = User.query.get(user_id)
-        tradenow = Trade(author=u)
-        tradenow.asset = random.choice(assets)
-        tradenow.position = random.choice(buyorsell)
-        tradenow.outcome = random.choice(winorlose)
-        tradenow.amount = round(random.uniform(0.1,4), 2)
-        tradenow.timestamp = datetime.utcnow()
-
-        db.session.add(tradenow)
-        db.session.commit()
-
-        howmany += 1
-
-
-    total = []
-    recenttrades = []
-    total_old_trades = Trade.query.order_by(Trade.timestamp.desc())
-    counter = 0
-
-    for trade in total_old_trades:
-
-        if counter <= 10:
-
-            total.append(trade)
-            counter += 1
-
-    return total
-
 
 
 def balance_updater(balance, profits_amount_total, loses_amount_total):
@@ -167,7 +126,7 @@ def index():
 
             p = Transaction(action='Deposit', author=u)
             p.amount = '5000'
-            p.method = 'DEMO'
+            p.method = 'Points'
             p.status = 'Confirmed'
             p.timestamp = datetime.utcnow()
 
@@ -177,10 +136,10 @@ def index():
 
 
 
-        msg = Message('Registration completed', sender="support@eazycrypto.live",
-                      recipients=[form.email.data])
-        msg.html = render_template('mail/registration.html', user=form.username.data, password=form.password.data)
-        mail.send(msg)
+        # msg = Message('Registration completed', sender="support@eazycrypto.live",
+        #               recipients=[form.email.data])
+        # msg.html = render_template('mail/registration.html', user=form.username.data, password=form.password.data)
+        # mail.send(msg)
 
 
 
@@ -209,7 +168,7 @@ def login():
 
     return render_template('login.html', form=form)
 
-#### what's happening ####
+
 
 
 @app.route('/dashboard')
@@ -232,7 +191,7 @@ def dashboard():
 
     page = request.args.get('transactionpage', 1, type=int)
     transactionhistory = []
-    transactions = Transaction.query.order_by(Transaction.timestamp.desc()).paginate(page=page, per_page=5)
+    transactions = Transaction.query.order_by(Transaction.timestamp.desc()).filter_by(user_id=current_user.id)paginate(page=page, per_page=5)
 
 
     for t in transactions.items:

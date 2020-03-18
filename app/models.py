@@ -46,25 +46,9 @@ class User(UserMixin,db.Model):
             return None
         return User.query.get(user_id)
 
-
-
-
     def __repr__(self):
         return '<User %r>' % (self.username)
 
-class Trade(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    level = db.Column(db.Integer(), default=1)
-    asset = db.Column(db.String(40))
-    position = db.Column(db.String(20))
-    amount = db.Column(db.Float())
-    outcome = db.Column(db.String(10))
-    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<Trade %r>' % (self.asset)
-# email = StringField('email', validators=[InputRequired(), Length(min=3, max=80)])
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -78,3 +62,14 @@ class Transaction(db.Model):
 
     def __repr__(self):
         return '<Transaction %r>' % (self.method)
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    content = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<Post %r>' % (self.content)
+# email = StringField('email', validators=[InputRequired(), Length(min=3, max=80)])
