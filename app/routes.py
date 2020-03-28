@@ -46,7 +46,7 @@ def index():
 
             u = User.query.get(user.id)
 
-            p = Post(content="Hey everyone just signed up"author=u)
+            p = Post(content="Hey everyone just signed up", author=u)
             p.timestamp = datetime.utcnow()
 
             db.session.add(p)
