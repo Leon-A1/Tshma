@@ -13,11 +13,9 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import time
 from flask_mail import Mail, Message
-from . import profits, mail_temps
-
 
 from .forms import RegisterForm, LoginForm, ResetPasswordForm, RequestResetForm
-from .models import User, Trade, Transaction
+from .models import User, Post
 
 from app import app, db, bootstrap, login_manager, mail, bcrypt
 

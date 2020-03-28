@@ -21,6 +21,7 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(200))
+    post = db.relationship('Post', backref='author', lazy='dynamic')
     
 
     def get_reset_token(self, expires_sec=1800):
