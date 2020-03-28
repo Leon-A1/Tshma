@@ -46,10 +46,7 @@ def index():
 
             u = User.query.get(user.id)
 
-            p = Transaction(action='Deposit', author=u)
-            p.amount = '5000'
-            p.method = 'Points'
-            p.status = 'Confirmed'
+            p = Post(content="Hey everyone just signed up"author=u)
             p.timestamp = datetime.utcnow()
 
             db.session.add(p)

@@ -1,11 +1,72 @@
+{% import "bootstrap/wtf.html" as wtf %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Tshma</title>
 </head>
-<body>
-  <H1>Tshma</H1>
+<body style="background-color:skyblue">
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <a class="navbar-brand" href="/"></a>
+          <a style="font-size:120%;text-align:center;" class="nav-item nav-link" href="/">LOGIN</a>
+    </nav>
+  <div style="padding-top:75px; "class="container-fluid">
+  <div class="row">
+    <div class="col">
+        <h1 style="color:transparent">Ghost Col</h1>
+    </div>
+
+    <!-- MAIN CONTENT BLOCK -->
+    <div class="col">
+      <form class="form-signin" style='text-align:center;' action="/" method="POST">
+        <h1 style="font-size: 200%;">TSHMA</h1>
+        <h3 style="" >Register</h3>
+        {% if message %}
+        <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+        {% endif %}
+
+
+          {{ form.hidden_tag() }}
+        <div style="" class="form-group">
+          {{ wtf.form_field(form.username) }}
+        </div>
+
+
+        <div style="" class="form-group">
+          {{ wtf.form_field(form.email) }}
+
+        </div>
+
+
+        <div style="" class="form-group">
+
+          {{ wtf.form_field(form.password) }}
+
+        </div>
+        <div style="" class="form-group">
+        {{ wtf.form_field(form.confirm_password) }}
+        </div>
+        <div class="form-group">
+        <button class="btn btn-md btn-primary btn-block" type="submit"><strong>Sign-Up</strong></button>
+      </div></form>
+
+      {% block one %}
+      {% endblock %}
+      {%block content %}
+      {% endblock %}
+
+
+    </div>
+    <div class="col">
+      <h1 style="color:transparent">Ghost Col</h1>
+    </div>
+
+
+  </div>
+
+</div>
+  
 </body>
 </html>

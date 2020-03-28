@@ -1,56 +1,71 @@
 {% import "bootstrap/wtf.html" as wtf %}
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
-    <title>Login</title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Tshma</title>
+</head>
+<body style="background-color:skyblue">
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <a class="navbar-brand" href="/"></a>
+          <a style="font-size:120%;text-align:center;" class="nav-item nav-link" href="/">LOGIN</a>
+    </nav>
+  <div style="padding-top:75px; "class="container-fluid">
+  <div class="row">
+    <div class="col">
+        <h1 style="color:transparent">Ghost Col</h1>
+    </div>
 
-  <body style='background-color:skyblue;text-align:center;background-position: relative ;'>
-    <nav class="navbar fixed-top navbar-light bg-light">
-      <a class="navbar-brand" href="/">Tshma</a>
-            <a style="font-size:120%;color:gray;text-align:center;" class="nav-item nav-link" href="/">Signup</a>
-      </nav>
-    <div style="font-family: 'Roboto Slab', serif;"  class="container">
-      <div class="row">
-        <div class="col">
+    <!-- MAIN CONTENT BLOCK -->
+    <div class="col">
+      <form class="form-signin" style='text-align:center;' action="/login" method="POST">
+        <h1 style="font-size: 200%;">TSHMA</h1>
+        <h3 style="" >LOGIN</h3>
+        {% if message %}
+        <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+        {% endif %}
+
+
+          {{ form.hidden_tag() }}
+        <div style="" class="form-group">
+          {{ wtf.form_field(form.username) }}
         </div>
-        <div class="col">
-          <h1 style='text-align:center;padding-top: 100px;color:white'><strong>Login</strong></h1>
-          <hr>
-            {% if message %}
-            <p style="color:white;"class="message"><strong>{{ message }}</strong></p>
-            {% endif %}
 
-            <form style='text-align:center;display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-color:white;' class="form-signin" method="POST" action="/login">
+        <div style="" class="form-group">
 
-              {{ form.hidden_tag() }}
-              {{ wtf.form_field(form.username) }}
-              {{ wtf.form_field(form.password) }}
-              {{ wtf.form_field(form.remember) }}
-              <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
-
-
-            </form>
-            <p>
-            <a style="font-size:90%;color:white;text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
-            </p>
+          {{ wtf.form_field(form.password) }}
 
         </div>
-        <div class="col">
+        <div style="" class="form-group">
+
+          {{ wtf.form_field(form.remember) }}
 
         </div>
+
+        <div class="form-group">
+        <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
       </div>
+      <div class="form-group">
+        <p>
+          <a style="font-size:90%;color:white;text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
+          </p>
+      </div>
+      
+
+      </form>
+
+
+    </div>
+    <div class="col">
+      <h1 style="color:transparent">Ghost Col</h1>
     </div>
 
 
+  </div>
 
-
-
-
-  </body>
-
+</div>
+  
+</body>
 </html>
