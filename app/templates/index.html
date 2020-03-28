@@ -1,109 +1,11 @@
-{% import "bootstrap/wtf.html" as wtf %}
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-<!--     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
-    <title>Home</title>
-  </head>
-<!--   <body style='background-image:url({{url_for('static', filename='img/chat2.jpg')}});'> -->
-  <body style="background-color:gray;">
-
-    <nav class="navbar fixed-top navbar-light bg-light">
-      <a class="navbar-brand" href="/">Tsham</a>
-
-            <a style="font-size:120%;color:gray;" class="nav-item nav-link" href="/login">Members</a>
-    </nav>
-
-
-    <div style="font-family: 'Roboto Slab', serif;" class="container">
-      <div class="row">
-        <div style="padding-top:85px;text-align:center;font-size:120%;" class="col">
-          <h1 style='color: white;font-weight:900'>Tshma</h1>
-          <hr>
-          <p>to be continued ... </p>
-        </div>
-        <div style="padding-top:75px;" class="col">
-        </div>
-        <div style="padding-top:85px;font-family: 'Roboto Slab', serif;" class="col">
-          <form class="form-signin" style='text-align:center;' action="/" method="POST">
-            <h2 style="color:white;font-weight:900"><strong>Sign up</strong></h2>
-            {% if message %}
-            <p style="color:white;"class="message"><strong>{{ message }}</strong></p>
-            {% endif %}
-
-
-              {{ form.hidden_tag() }}
-            <div style="color:white;" class="form-group">
-              {{ wtf.form_field(form.username) }}
-            </div>
-
-
-            <div style="color:white" class="form-group">
-              {{ wtf.form_field(form.email) }}
-
-            </div>
-
-
-            <div style="color:white" class="form-group">
-
-              {{ wtf.form_field(form.password) }}
-
-            </div>
-            <div style="color:white" class="form-group">
-            {{ wtf.form_field(form.confirm_password) }}
-            </div>
-            <div class="form-group">
-            <button style="background-color:gray;" class="btn btn-md btn-primary btn-block" type="submit">SIGN UP</button>
-            </div>
-          <!-- </form>
-          <form class="form-signin" method="POST" action="/signup">
-            <h2 class="form-signin-heading">Sign Up</h2>
-            {{ form.hidden_tag() }}
-            {{ wtf.form_field(form.username) }}
-            {{ wtf.form_field(form.email) }}
-            {{ wtf.form_field(form.password) }}
-
-          </form> -->
-          <br>
-
-        </div>
-
-      </div>
-
-      <hr>
-
-
-    <div class="row">
-
-
-<!-- Testamonials -->
-
-    
-    </div>
-  
-
-    <hr>
-
-<!-- TradingView Widget BEGIN -->
-
-      <div class="row">
-        
-
-        </div>
-    </div>
-    </div>
-
-
-
-      <br>
-      <br>
-      <br>
-
-  <h6 style="color:white;text-align:center;padding-left:50px;padding-right:50px;font-size:80%;background-color:black;padding-bottom:10px;padding-top:10px;margin:0;"><strong>Tshma Inc. 2020</strong> <br> <a href="/contact">Contact-Us</a></h6>
-  </body>
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tshma</title>
+</head>
+<body>
+  <H1>Tshma</H1>
+</body>
 </html>
