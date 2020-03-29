@@ -1,52 +1,22 @@
-{% import "bootstrap/wtf.html" as wtf %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Tshma</title>
-</head>
-<body style="background-color:rgb(0, 0, 19)">
+{% extends "base.html" %}
+{% block nav %}
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/"></a>
+  <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/profile">Go back</a>
+  </nav>
 
-  <nav class="navbar fixed-top navbar-light bg-light">
-    <a class="navbar-brand" href="/"></a>
-          <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/profile">Go back</a>
-    </nav>
-  <div style="padding:0;margin:0"class="container-fluid">
-    {% if not request.MOBILE %}
-  <div style="padding:0;margin:0;" class="row">
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
+{% endblock %}
 
-        <h1 style="color:transparent;">Ghost Col</h1>
-    </div>
-
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;text-align: center;"class="col">
-        <h4>Post submitted successfully</h4>
-        <a href="/profile">profile</a>
-    </div>
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-
-      <h1 style="color:transparent;">Ghost Col</h1>
-    </div>
-
-
-  </div>
-  {% else %}
-  <div style="padding:0;margin:0;" class="row">
-    
-
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;text-align: center;"class="col">
-        <h4>Post submitted successfully</h4>
-        <a href="/profile">profile</a>
-    </div>
-    
-
-  </div>
-  {% endif %}
+{% block desktop %}
+<div style="padding-bottom: 200px;" class="container">
+  <h4>Post submitted successfully</h4>
+  <a href="/profile">profile</a>
 </div>
-  
-</body>
-</html>
+
+{% endblock %}
+{% block mobile %}
+<div style="padding-bottom: 200px;" class="container">
+  <h4>Post submitted successfully</h4>
+  <a href="/profile">profile</a>
+</div>
+{% endblock %}

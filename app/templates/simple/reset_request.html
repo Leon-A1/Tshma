@@ -1,34 +1,19 @@
-{% import "bootstrap/wtf.html" as wtf %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Tshma</title>
-</head>
-<body style="background-color:rgb(0, 0, 19)">
-  <nav class="navbar fixed-top navbar-light bg-light">
-    <a class="navbar-brand" href="/"></a>
-          <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">SIGN UP</a>
-    </nav>
-    <div style="padding:0;margin:0"class="container-fluid">
-      <div style="padding:0;margin:0;" class="row">
-        <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-            <p style="color:transparent;">Ghost Col</p>
-        </div>
-    
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;"class="col">
-      
+{% extends "base.html" %}
+{% block nav %}
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/"></a>
+        <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
+  </nav>
+{% endblock %}
 
+{% block desktop %}
       <h1 style='text-align:center;padding-top: 100px;'><strong>Reset Password</strong></h1>
       <hr>
-        {% if message %}
-        <p style=";"class="message"><strong>{{ message }}</strong></p>
-        {% endif %}
+      {% if message %}
+        <p style=""class="message"><strong>{{ message }}</strong></p>
+      {% endif %}
 
-        <form style='display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-;' class="form-signin" method="POST" action="">
+       <form style='display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-;' class="form-signin" method="POST" action="">
 
           {{ form.hidden_tag() }}
           {{ wtf.form_field(form.email) }}
@@ -36,20 +21,20 @@
 
           <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
         </form>
-     
+{% endblock %}
+{% block mobile %}
+     <h1 style='text-align:center;padding-top: 100px;'><strong>Reset Password</strong></h1>
+      <hr>
+      {% if message %}
+        <p style=""class="message"><strong>{{ message }}</strong></p>
+      {% endif %}
+
+       <form style='display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-;' class="form-signin" method="POST" action="">
+
+          {{ form.hidden_tag() }}
+          {{ wtf.form_field(form.email) }}
 
 
-    </div>
-    
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-      
-      <p style="color:transparent">Ghost Col</p>
-    </div>
-
-
-  </div>
-
-</div>
-  
-</body>
-</html>
+          <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
+        </form>
+{% endblock %}
