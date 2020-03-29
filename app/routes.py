@@ -16,7 +16,7 @@ from flask_mail import Mail, Message
 from .forms import RegisterForm, LoginForm, ResetPasswordForm, RequestResetForm
 from .models import User, Post
 
-from app import app, db, bootstrap, login_manager, mail, bcrypt
+from app import app, db, bootstrap, login_manager, mail, bcrypt, mobile
 
 
 

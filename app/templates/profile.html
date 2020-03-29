@@ -17,6 +17,7 @@
     <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
     </nav>
   <div style="padding:0;margin:0" class="container-fluid">
+  {% if not request.MOBILE %}
   <div style="padding:0;margin:0" class="row">
     <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
 
@@ -69,6 +70,57 @@
 
 
   </div>
+
+                        
+  {% else %}
+  <div style="padding:0;margin:0" class="row">
+  
+
+    <!-- MAIN CONTENT BLOCK -->
+    <div style="padding-top:75px; padding-bottom:200px;background-color: white;padding-right: 35px;padding-left:35px;"class="col">
+    <p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
+     <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Posts: {{ num_of_posts }}</p>   
+     <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Last Post: {{ last_login }}</p>
+     <hr>
+     <!-- NEW POST -->
+     <p style="opacity: 30%;text-align:center;padding:0px;margin:0"><strong>New Post</strong></p>
+     <form class="form-signin" action="/profile" method="POST">
+     <div style="padding-bottom:5px;"clas="form-group">
+      <textarea class ="form-control"name="content" id=""content"" cols="30" rows="5"></textarea>
+    </div>
+   
+     <div clas="form-group">
+       <button style="width:100%;padding:0;margin;0"class="btn btn-sm btn-primary btn" type="submit">Submit</button>
+      </div>
+     
+     </form> 
+     <hr>
+     <!-- POSTS -->
+     <div >
+      {% for post in Posts %}
+      <br>
+      <div style="border:solid 1px gray;border-radius:25px;padding: 15px; "class="container">
+      <p style="padding-bottom:0;margin-bottom:0;padding-top:10px;" >{{ post.author}}</p>
+      <p style="padding-top:0;margin-top:0;opacity:40%;font-size: 80%;">{{ post.timestamp.strftime('%H:%M %d-%H-%y') }}</p>
+      <hr>
+      <p >{{ post.content }}</p>
+      
+
+      </div> 
+      <br>
+      
+      {% endfor %}
+
+
+     </div>
+   
+    </div>
+    
+
+
+  </div>
+
+  {% endif %}
 
 </div>
   

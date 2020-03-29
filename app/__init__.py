@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy  import SQLAlchemy
 from flask_login import LoginManager
 import os
+from flask_mobility import Mobility
 
 
 
@@ -14,6 +15,7 @@ from flask_mail import Mail
 
 
 app = Flask(__name__)
+mobile = Mobility(app)
 bcrypt = Bcrypt(app)
 app.config['MAIL_SERVER']='mail.privateemail.com'
 app.config['MAIL_PORT'] = 587
