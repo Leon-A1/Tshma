@@ -66,7 +66,7 @@ def index():
 
 
         #User has been created succsessfuly###
-        return render_template('index', message="something went wrong please try again")
+        return render_template('index', form=form , message="something went wrong please try again")
 
 
     return render_template('index.html', form=form)

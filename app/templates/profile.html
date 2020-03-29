@@ -14,7 +14,7 @@
 
   <nav class="navbar fixed-top navbar-light bg-light">
     <a class="navbar-brand" href="/"></a>
-          <a style="font-size:120%;text-align:center;" class="nav-item nav-link" href="/">LOGIN</a>
+          <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
     </nav>
   <div style=""class="container-fluid">
   <div style="padding:0;margin:0;" class="row">
@@ -43,12 +43,14 @@
      </form> 
      <hr>
      <!-- POSTS -->
-     
-    <ul>
-        {% for post in Posts %}
-        <li>{{ post.body }}</li>
-        {% endfor %}
-    </ul>
+     <div>
+      {% for post in Posts %}
+      <p>{{ post.content }}</p>
+      {% endfor %}
+
+
+     </div>
+   
     </div>
     <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
 
