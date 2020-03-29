@@ -102,9 +102,10 @@ def profile():
         db.session.add(p)
         db.session.commit()
 
-        return render_template("simple/Post submitted successfully.html")
+        return render_template("simple/postsubmitted.html")
 
     username = current_user.username
+    last_login = current_user.last_login
     num_of_posts = []
     
     Posts = Post.query.order_by(Post.timestamp.desc()).filter_by(user_id=current_user.id).all()
