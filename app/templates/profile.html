@@ -1,32 +1,16 @@
-{% import "bootstrap/wtf.html" as wtf %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Tshma</title>
-  <script type="text/javascript">
-    window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
-  </script>
-</head>
-<body style="background-color:black">
+{% extends "base.html" %}
+{% block nav  %}
+<script type="text/javascript">
+  window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+</script>
+<nav style="padding:0;margin:0;"class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/"></a>
+  <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
+  </nav>
+{% endblock %}
 
-  <nav style="padding:0;margin:0;"class="navbar fixed-top navbar-light bg-light">
-    <a class="navbar-brand" href="/"></a>
-    <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
-    </nav>
-  <div style="padding:0;margin:0" class="container-fluid">
-  {% if not request.MOBILE %}
-  <div style="padding:0;margin:0" class="row">
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-
-        <p style="color:transparent;">Ghost Col</p>
-    </div>
-
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;padding-right: 35px;padding-left:35px;"class="col">
-    <p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
+{% block desktop %}
+<p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Posts: {{ num_of_posts }}</p>   
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Last Post: {{ last_login }}</p>
      <hr>
@@ -61,24 +45,10 @@
 
 
      </div>
-   
-    </div>
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-      
-      <p style="color:transparent;">Ghost Col</p>
-    </div>
 
-
-  </div>
-
-                        
-  {% else %}
-  <div style="padding:0;margin:0" class="row">
-  
-
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;padding-right: 35px;padding-left:35px;"class="col">
-    <p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
+{% endblock %}
+{% block mobile %}
+<p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Posts: {{ num_of_posts }}</p>   
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Last Post: {{ last_login }}</p>
      <hr>
@@ -113,16 +83,5 @@
 
 
      </div>
-   
-    </div>
-    
 
-
-  </div>
-
-  {% endif %}
-
-</div>
-  
-</body>
-</html>
+{% endblock %}
