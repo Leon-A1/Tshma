@@ -80,11 +80,42 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
 
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('profile'))
 
         return render_template('login.html', form=form, message='wrong login credentials, please try again')
 
     return render_template('login.html', form=form)
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if request.method == "POST":
+        req = request.form
+        content = req['content']
+        # msg = Message('subject', sender="",
+        #               recipients=[current_user.email])
+        # msg.html = render_template('mail template', user=current_user.username)
+        # mail.send(msg)
+
+        u = User.query.get(current_user.id)
+        p = Post(content=content, author=u)
+        p.timestamp = datetime.utcnow()
+        db.session.add(p)
+        db.session.commit()
+
+        return render_template("simple/Post submitted successfully.html")
+
+    username = current_user.username
+    num_of_posts = []
+    
+    Posts = Post.query.order_by(Post.timestamp.desc()).filter_by(user_id=current_user.id).all()
+    for p in Posts:
+        num_of_posts.append(P)
+    
+    num_of_posts = len(num_of_posts)
+
+
+    return render_template("profile.html", num_of_posts=num_of_posts, Posts=Posts, username=username,last_login=last_login )
+
 
 
 
@@ -109,7 +140,7 @@ def contact():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request',
-                  sender='support@eazycrypto.live',
+                  sender='',
                   recipients=[user.email])
     msg.html = render_template('mail/resetpassword.html', token=token)
 
