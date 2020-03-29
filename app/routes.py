@@ -91,11 +91,13 @@ def login():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-
-    u = User.query.get(user.id)
-    u.last_login = datetime.utcnow()
-    db.session.add(u)
-    db.session.commit()
+    user = User.query.filter_by(username=current_user.username).first()
+        if user:
+            u = User.query.get(user.id)
+            u.last_login = datetime.utcnow()
+            db.session.add(u)
+            db.session.commit()
+    
 
     if request.method == "POST":
         req = request.form
@@ -104,12 +106,14 @@ def profile():
         #               recipients=[current_user.email])
         # msg.html = render_template('mail template', user=current_user.username)
         # mail.send(msg)
+        user = User.query.filter_by(username=current_user.username).first()
+        if user:
+            u = User.query.get(user.id)
+            p = Post(content=content, author=u)
+            p.timestamp = datetime.utcnow()
+            db.session.add(p)
+            db.session.commit()
         
-        u = User.query.get(user.id)
-        p = Post(content=content, author=u)
-        p.timestamp = datetime.utcnow()
-        db.session.add(p)
-        db.session.commit()
 
         
         
