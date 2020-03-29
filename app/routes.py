@@ -98,17 +98,19 @@ def profile():
         #               recipients=[current_user.email])
         # msg.html = render_template('mail template', user=current_user.username)
         # mail.send(msg)
-
-        u = User.query.get(current_user.id)
+        
+        u = User.query.get(current_user.username)
+        u.last_login = datetime.utcnow()
         p = Post(content=content, author=u)
         p.timestamp = datetime.utcnow()
-        db.session.add(p)
+        db.session.add(p, u)
         db.session.commit()
 
         return render_template("simple/postsubmitted.html")
 
     username = current_user.username
     last_login = current_user.last_login
+    
     num_of_posts = []
     
     Posts = Post.query.order_by(Post.timestamp.desc()).filter_by(user_id=current_user.id).all()
@@ -116,6 +118,7 @@ def profile():
         num_of_posts.append(p)
     
     num_of_posts = len(num_of_posts)
+    last_login = last_login.strftime('%H:%M %d-%H-%y')
 
 
     return render_template("profile.html", num_of_posts=num_of_posts, Posts=Posts, username=username,last_login=last_login )
