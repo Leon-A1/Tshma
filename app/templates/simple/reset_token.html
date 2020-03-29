@@ -8,13 +8,13 @@
 
 
 {% block desktop %}
-<h3><strong>Reset Password</strong></h3>
+<h3 style='text-align:center;'><strong>New Password</strong></h3>
 <hr>
 {% if message %}
-<p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+<p style="opacity:90%;text-align:center;" class="message"><strong>{{ message }}</strong></p>
 {% endif %}
 
-<form method="POST" action="">
+<form style='text-align:center;' method="POST" action="">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
         <div class="form-group">
@@ -51,13 +51,12 @@
 
 {% endblock %}
 {% block mobile %}
-<h3><strong>Reset Password</strong></h3>
+<h3 style='text-align:center;'><strong>New Password</strong></h3>
 <hr>
 {% if message %}
-<p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+<p style="opacity:90%;text-align:center;" class="message"><strong>{{ message }}</strong></p>
 {% endif %}
-
-<form method="POST" action="">
+<form style='text-align:center;' method="POST" action="">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
         <div class="form-group">
@@ -91,7 +90,5 @@
         <button class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
     </div>
 </form>
-
-
 {% endblock %}
 {% import "bootstrap/wtf.html" as wtf %}
