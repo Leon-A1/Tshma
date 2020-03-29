@@ -13,7 +13,10 @@
           <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">SIGN UP</a>
     </nav>
     <div style="padding:0;margin:0"class="container-fluid">
+      {% if not request.MOBILE %}
+      
       <div style="padding:0;margin:0;" class="row">
+        
         <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
             <p style="color:transparent;">Ghost Col</p>
         </div>
@@ -64,9 +67,57 @@
     </div>
 
 
-  </div>
+      </div>
+      {% else %}
+      <div style="padding:0;margin:0;" class="row">
+        
+       
+    <!-- MAIN CONTENT BLOCK -->
+    <div style="padding-top:75px; padding-bottom:200px;background-color: white;"class="col">
+      <form class="form-signin" style='text-align:center;' action="/login" method="POST">
+        <h3 style="" >LOGIN</h3>
+        {% if message %}
+        <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+        {% endif %}
 
-</div>
+
+          {{ form.hidden_tag() }}
+        <div style="" class="form-group">
+          {{ wtf.form_field(form.username) }}
+        </div>
+
+        <div style="" class="form-group">
+
+          {{ wtf.form_field(form.password) }}
+
+        </div>
+        <div style="" class="form-group">
+
+          {{ wtf.form_field(form.remember) }}
+
+        </div>
+
+        <div class="form-group">
+        <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
+      </div>
+      <div class="form-group">
+        <p>
+          <a style="font-size:90%;color:rgb(0, 0, 0);text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
+          </p>
+      </div>
+      
+
+      </form>
+
+
+    </div>
+    
+ 
+
+
+      </div>
+      {% endif %}
+    </div>
   
 </body>
 </html>
