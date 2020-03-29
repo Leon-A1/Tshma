@@ -9,7 +9,6 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import os
 import random
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime
 import time
 from flask_mail import Mail, Message
@@ -58,7 +57,7 @@ def index():
 
 
 
-        # msg = Message('Registration completed', sender="support@eazycrypto.live",
+        # msg = Message('Registration completed', sender="",
         #               recipients=[form.email.data])
         # msg.html = render_template('mail/registration.html', user=form.username.data, password=form.password.data)
         # mail.send(msg)
