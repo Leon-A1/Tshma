@@ -1,40 +1,40 @@
 {% extends "base.html" %}
 {% block nav %}
-<nav class="navbar fixed-top navbar-light bg-light">
+<nav style="padding:0;margin:0;" class="navbar fixed-top navbar-light bg-light">
   <a class="navbar-brand" href="/"></a>
         <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
   </nav>
 {% endblock %}
 
 {% block desktop %}
-      <h1 style='text-align:center;padding-top: 100px;'><strong>Reset Password</strong></h1>
+      <h3><strong>Reset Password</strong></h3>
       <hr>
       {% if message %}
-        <p style=""class="message"><strong>{{ message }}</strong></p>
+      <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
       {% endif %}
 
-       <form style='display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-;' class="form-signin" method="POST" action="">
+       <form  class="form-signin" method="POST" action="">
 
           {{ form.hidden_tag() }}
           {{ wtf.form_field(form.email) }}
 
 
-          <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
+          <button class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
         </form>
 {% endblock %}
 {% block mobile %}
-     <h1 style='text-align:center;padding-top: 100px;'><strong>Reset Password</strong></h1>
-      <hr>
-      {% if message %}
-        <p style=""class="message"><strong>{{ message }}</strong></p>
-      {% endif %}
+  <h3><strong>Reset Password</strong></h3>
+  <hr>
+  {% if message %}
+  <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+  {% endif %}
 
-       <form style='display: inline-block;border:solid 0.1px;border-radius:25px;padding:15px;border-color:#2574A9;background-;' class="form-signin" method="POST" action="">
+ <form  class="form-signin" method="POST" action="">
 
-          {{ form.hidden_tag() }}
-          {{ wtf.form_field(form.email) }}
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.email) }}
 
 
-          <button style='text-align:center;width:100%;background-color:gray' class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
-        </form>
+    <button class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
+  </form>
 {% endblock %}
