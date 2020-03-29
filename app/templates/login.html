@@ -1,123 +1,80 @@
-{% import "bootstrap/wtf.html" as wtf %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Tshma</title>
-</head>
-<body style="background-color:rgb(0, 0, 19)">
-  <nav class="navbar fixed-top navbar-light bg-light">
-    <a class="navbar-brand" href="/"></a>
-          <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">SIGN UP</a>
-    </nav>
-    <div style="padding:0;margin:0"class="container-fluid">
-      {% if not request.MOBILE %}
-      
-      <div style="padding:0;margin:0;" class="row">
-        
-        <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-            <p style="color:transparent;">Ghost Col</p>
-        </div>
-    
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;"class="col">
-      <form class="form-signin" style='text-align:center;' action="/login" method="POST">
-        <h3 style="" >LOGIN</h3>
-        {% if message %}
-        <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
-        {% endif %}
+{% extends "BaseProfile.html" %}
+{% block nav  %}
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/"></a>
+        <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">SIGN UP</a>
+  </nav>
+{% endblock %}
+
+{% block desktop %}
+<form class="form-signin" style='text-align:center;' action="/login" method="POST">
+  <h3 style="" >LOGIN</h3>
+  {% if message %}
+  <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+  {% endif %}
 
 
-          {{ form.hidden_tag() }}
-        <div style="" class="form-group">
-          {{ wtf.form_field(form.username) }}
-        </div>
+    {{ form.hidden_tag() }}
+  <div style="" class="form-group">
+    {{ wtf.form_field(form.username) }}
+  </div>
 
-        <div style="" class="form-group">
+  <div style="" class="form-group">
 
-          {{ wtf.form_field(form.password) }}
+    {{ wtf.form_field(form.password) }}
 
-        </div>
-        <div style="" class="form-group">
+  </div>
+  <div style="" class="form-group">
 
-          {{ wtf.form_field(form.remember) }}
+    {{ wtf.form_field(form.remember) }}
 
-        </div>
+  </div>
 
-        <div class="form-group">
-        <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
-      </div>
-      <div class="form-group">
-        <p>
-          <a style="font-size:90%;color:rgb(0, 0, 0);text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
-          </p>
-      </div>
-      
-
-      </form>
+  <div class="form-group">
+  <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
+</div>
+<div class="form-group">
+  <p>
+    <a style="font-size:90%;color:rgb(0, 0, 0);text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
+    </p>
+</div>
 
 
-    </div>
-    
-    <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-      
-      <p style="color:transparent">Ghost Col</p>
-    </div>
+</form>
+{% endblock %}
+{% block mobile %}
+<form class="form-signin" style='text-align:center;' action="/login" method="POST">
+  <h3 style="" >LOGIN</h3>
+  {% if message %}
+  <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
+  {% endif %}
 
 
-      </div>
-      {% else %}
-      <div style="padding:0;margin:0;" class="row">
-        
-       
-    <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:500px;background-color: white;"class="col">
-      <form class="form-signin" style='text-align:center;' action="/login" method="POST">
-        <h3 style="" >LOGIN</h3>
-        {% if message %}
-        <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
-        {% endif %}
+    {{ form.hidden_tag() }}
+  <div style="" class="form-group">
+    {{ wtf.form_field(form.username) }}
+  </div>
+
+  <div style="" class="form-group">
+
+    {{ wtf.form_field(form.password) }}
+
+  </div>
+  <div style="" class="form-group">
+
+    {{ wtf.form_field(form.remember) }}
+
+  </div>
+
+  <div class="form-group">
+  <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
+</div>
+<div class="form-group">
+  <p>
+    <a style="font-size:90%;color:rgb(0, 0, 0);text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
+    </p>
+</div>
 
 
-          {{ form.hidden_tag() }}
-        <div style="" class="form-group">
-          {{ wtf.form_field(form.username) }}
-        </div>
-
-        <div style="" class="form-group">
-
-          {{ wtf.form_field(form.password) }}
-
-        </div>
-        <div style="" class="form-group">
-
-          {{ wtf.form_field(form.remember) }}
-
-        </div>
-
-        <div class="form-group">
-        <button class="btn btn-md btn-primary btn-block" type="submit"><strong>LOGIN</strong></button>
-      </div>
-      <div class="form-group">
-        <p>
-          <a style="font-size:90%;color:rgb(0, 0, 0);text-align:center;" href="{{ url_for('reset_request')}}"><strong>Forgot password</strong></a>
-          </p>
-      </div>
-      
-
-      </form>
-
-
-    </div>
-    
- 
-
-
-      </div>
-      {% endif %}
-    </div>
-  
-</body>
-</html>
+</form>
+{% endblock %}
