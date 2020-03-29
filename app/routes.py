@@ -27,6 +27,7 @@ from app import app, db, bootstrap, login_manager, mail, bcrypt
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    
     form = RegisterForm()
 
     if form.validate_on_submit():
@@ -52,6 +53,8 @@ def index():
             db.session.add(p)
             db.session.commit()
 
+            return render_template('login.html', message="account has been created")
+
 
 
 
@@ -63,7 +66,7 @@ def index():
 
 
         #User has been created succsessfuly###
-        return redirect(url_for('login'))
+        return render_template('index', message="something went wrong please try again")
 
 
     return render_template('index.html', form=form)
@@ -110,7 +113,7 @@ def profile():
     
     Posts = Post.query.order_by(Post.timestamp.desc()).filter_by(user_id=current_user.id).all()
     for p in Posts:
-        num_of_posts.append(P)
+        num_of_posts.append(p)
     
     num_of_posts = len(num_of_posts)
 
