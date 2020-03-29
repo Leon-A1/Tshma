@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% block desktop %}
-<form style="padding:bottom:500px;"class="form-signin" style='text-align:center;' action="/login" method="POST">
+<div style="padding-bottom: 500px" class="container">
+
+<form style='text-align:center;' class="form-signin"  action="/login" method="POST">
   <h3 style="" >Login</h3>
   {% if message %}
   <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
@@ -41,9 +43,12 @@
 
 
 </form>
+</div>
 {% endblock %}
 {% block mobile %}
-<form style="padding:bottom:500px;"class="form-signin" style='text-align:center;' action="/login" method="POST">
+<div style="padding-bottom: 500px" class="container">
+
+<form style='text-align:center;'class="form-signin"  action="/login" method="POST">
   <h3 style="" >Login</h3>
   {% if message %}
   <p style="opacity:90%;"class="message"><strong>{{ message }}</strong></p>
@@ -77,4 +82,5 @@
 
 
 </form>
+</div>
 {% endblock %}

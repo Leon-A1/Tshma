@@ -8,6 +8,8 @@
 
 
 {% block desktop %}
+<div style="padding-bottom: 500px" class="container">
+
 <h3 style='text-align:center;'>New Password</h3>
 <hr>
 {% if message %}
@@ -48,9 +50,11 @@
         <button class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
     </div>
 </form>
-
+</div>
 {% endblock %}
 {% block mobile %}
+<div style="padding-bottom: 500px" class="container">
+
 <h3 style='text-align:center;'>New Password</h3>
 <hr>
 {% if message %}
@@ -90,5 +94,6 @@
         <button class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
     </div>
 </form>
+</div>
 {% endblock %}
 {% import "bootstrap/wtf.html" as wtf %}

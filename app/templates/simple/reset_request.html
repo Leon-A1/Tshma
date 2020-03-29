@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block desktop %}
+<div style="padding-bottom: 500px" class="container">
+
       <h3 style='text-align:center;'>Reset Password</h3>
       <hr>
       {% if message %}
@@ -21,8 +23,11 @@
 
           <button class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
         </form>
+ </div>
 {% endblock %}
 {% block mobile %}
+<div style="padding-bottom: 500px" class="container">
+
     <h3 style='text-align:center;'>Reset Password</h3>
     <hr>
     {% if message %}
@@ -37,4 +42,5 @@
 
     <button class="btn btn-md btn-primary btn-block" type="submit">Request Password Email</button>
   </form>
+</div>
 {% endblock %}
