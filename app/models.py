@@ -39,7 +39,7 @@ class User(UserMixin,db.Model):
         return User.query.get(user_id)
 
     def __repr__(self):
-        return '<User %r>' % (self.username)
+        return '%r' % (self.username)
 
 
 
