@@ -92,11 +92,11 @@ def login():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     user = User.query.filter_by(username=current_user.username).first()
-        if user:
-            u = User.query.get(user.id)
-            u.last_login = datetime.utcnow()
-            db.session.add(u)
-            db.session.commit()
+    if user:
+        u = User.query.get(user.id)
+        u.last_login = datetime.utcnow()
+        db.session.add(u)
+        db.session.commit()
     
 
     if request.method == "POST":
@@ -108,6 +108,7 @@ def profile():
         # mail.send(msg)
         user = User.query.filter_by(username=current_user.username).first()
         if user:
+
             u = User.query.get(user.id)
             p = Post(content=content, author=u)
             p.timestamp = datetime.utcnow()
