@@ -53,7 +53,7 @@ def index():
             db.session.add(p)
             db.session.commit()
 
-            return redirect('login.html', message="account has been created")
+            return render_template('simple/acccreated.html')
 
 
 
