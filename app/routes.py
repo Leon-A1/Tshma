@@ -115,6 +115,7 @@ def profile():
     
     Posts = Post.query.order_by(Post.timestamp.desc()).filter_by(user_id=current_user.id).all()
     for p in Posts:
+        p.timestamp = p.timestamp.strftime('%H:%M %d-%H-%y')
         num_of_posts.append(p)
     
     num_of_posts = len(num_of_posts)
