@@ -48,7 +48,7 @@
       <br>
       <div style="border:solid 1px gray;border-radius:25px;padding: 15px; "class="container">
       <p style="padding-bottom:0;margin-bottom:0;padding-top:10px;" >{{ post.author}}</p>
-      <p style="padding-top:0;margin-top:0;opacity:40%;font-size: 80%;">{{ post.timestamp }}</p>
+      <p style="padding-top:0;margin-top:0;opacity:40%;font-size: 80%;">{{ post.timestamp.strftime('%H:%M %d-%H-%y') }}</p>
       <hr>
       <p >{{ post.content }}</p>
       

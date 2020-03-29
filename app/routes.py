@@ -111,20 +111,19 @@ def profile():
             db.session.commit()
         
 
-        
-        
-
         return render_template("simple/postsubmitted.html")
 
     username = current_user.username
     last_login = current_user.last_login
     
-    num_of_posts = []
+    
+    posts = []
     
     Posts = Post.query.order_by(Post.timestamp.desc()).all()
     for p in Posts:
-        p.timestamp = p.timestamp.strftime('%H:%M %d-%H-%y')
         num_of_posts.append(p)
+
+
     
     num_of_posts = len(num_of_posts)
     last_login = last_login.strftime('%H:%M %d-%H-%y')
