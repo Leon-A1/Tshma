@@ -91,12 +91,8 @@ def login():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    user = User.query.filter_by(username=current_user.username).first()
-    if user:
-        u = User.query.get(user.id)
-        u.last_login = datetime.utcnow()
-        db.session.add(u)
-        db.session.commit()
+    
+    # current_user.last_login = datetime.utcnow()
     
 
     if request.method == "POST":
