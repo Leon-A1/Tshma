@@ -116,8 +116,8 @@ def profile():
     username = current_user.username
     last_login = current_user.last_login
     
+    num_of_posts = []
     
-    posts = []
     
     Posts = Post.query.order_by(Post.timestamp.desc()).all()
     for p in Posts:
