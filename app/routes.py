@@ -101,9 +101,11 @@ def profile():
         
         u = User.query.get(current_user.username)
         u.last_login = datetime.utcnow()
+
         p = Post(content=content, author=u)
         p.timestamp = datetime.utcnow()
-        db.session.add(p, u)
+        db.session.add(p)
+        db.session.add(u)
         db.session.commit()
 
         return render_template("simple/postsubmitted.html")
