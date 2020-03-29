@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Tshma</title>
+  <script type="text/javascript">
+    window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+  </script>
 </head>
 <body style="background-color:rgb(0, 0, 19)">
 
@@ -29,11 +32,13 @@
      <!-- NEW POST -->
      <p style="opacity: 30%;text-align:center;padding:0px;margin:0"><strong>New Post</strong></p>
      <form class="form-signin" action="/profile" method="POST">
-    <div style="padding-bottom:5px;"clas="form-control"><input id="content" name="content class="text-input" style="width:100%;height:auto;max-width: 1400px;max-height:400px;"type="text"></div>
-    <script type="text/javascript">
-        window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
-        </script>
-     <div clas="form-control"><button style="width:100%;padding:0;margin;0"class="btn btn-sm btn-primary btn" type="submit">Submit</button></div>
+     <div style="padding-bottom:5px;"clas="form-control">
+      <input id="content" name="content" class="text-input" style="width:100%;height:auto;max-width: 1400px;max-height:400px;"type="text">
+    </div>
+   
+     <div clas="form-control">
+       <button style="width:100%;padding:0;margin;0"class="btn btn-sm btn-primary btn" type="submit">Submit</button>
+      </div>
      
      </form> 
      <hr>
@@ -41,7 +46,7 @@
      
     <ul>
         {% for post in Posts %}
-        <li>{{ post }}</li>
+        <li>{{ post.body }}</li>
         {% endfor %}
     </ul>
     </div>
