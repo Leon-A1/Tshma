@@ -10,21 +10,21 @@
     window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
   </script>
 </head>
-<body style="background-color:rgb(0, 0, 19)">
+<body style="background-color:pink">
 
-  <nav class="navbar fixed-top navbar-light bg-light">
+  <nav style="padding:0;margin:0;"class="navbar fixed-top navbar-light bg-light">
     <a class="navbar-brand" href="/"></a>
-          <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
+    <a style="font-size:120%;text-align:center;opacity:70%" class="nav-item nav-link" href="/">Go back</a>
     </nav>
-  <div style=""class="container-fluid">
-  <div style="padding:0;margin:0;" class="row">
+  <div style="padding:0;margin:0" class="container-fluid">
+  <div style="padding:0;margin:0" class="row">
     <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
 
         <p style="color:transparent;">Ghost Col</p>
     </div>
 
     <!-- MAIN CONTENT BLOCK -->
-    <div style="padding-top:75px; padding-bottom:200px;background-color: white;padding-right: 35px;padding-left:35px;"class="col-8">
+    <div style="padding-top:75px; padding-bottom:200px;background-color: white;padding-right: 35px;padding-left:35px;"class="col">
     <p style="padding: 0;font-size:110%;margin:0;text-align:center;">Hey {{ username }}</p> 
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Posts:{{ num_of_posts }}</p>   
      <p style="padding: 0;font-size:90%;opacity:60%;text-align:center;margin:0;">Last Post:{{ last_login }}</p>
@@ -63,7 +63,7 @@
    
     </div>
     <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
-
+      
       <p style="color:transparent;">Ghost Col</p>
     </div>
 
