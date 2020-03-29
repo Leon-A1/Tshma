@@ -91,6 +91,12 @@ def login():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+
+    u = User.query.get(user.id)
+    u.last_login = datetime.utcnow()
+    db.session.add(u)
+    db.session.commit()
+
     if request.method == "POST":
         req = request.form
         content = req['content']
@@ -99,14 +105,14 @@ def profile():
         # msg.html = render_template('mail template', user=current_user.username)
         # mail.send(msg)
         
-        u = User.query.get(current_user.username)
-        u.last_login = datetime.utcnow()
-
+        u = User.query.get(user.id)
         p = Post(content=content, author=u)
         p.timestamp = datetime.utcnow()
         db.session.add(p)
-        db.session.add(u)
         db.session.commit()
+
+        
+        
 
         return render_template("simple/postsubmitted.html")
 
