@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Tshma</title>
 </head>
-<body style="background-color:rgb(0, 0, 19)">
+<body style="background-color:#170b53">
     {% block nav %}
     {% endblock %}
     <div style="padding:0;margin:0"class="container-fluid">
       {% if not request.MOBILE %}
       <div style="padding:0;margin:0;" class="row">
-            <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
+            <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}});background-size: cover;background-repeat: no-repeat;"class="col">
             
             
                 <p style="color:transparent;">Ghost Col</p>
@@ -25,26 +25,12 @@
         
         {% endblock %}
         </div>
-        <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}})"class="col">
+        <div style="background-image:url({{url_for('static', filename='img/blue.jpg')}});background-size: cover;background-repeat: no-repeat;"class="col">
         <p style="color:transparent;">Ghost Col</p>
         </div>
 
        </div>
-       <div style="padding:0;margin:0;" class="row">
-        <div style="background-image:url({{url_for('static', filename='img/blue2.jpg')}})"class="col">
-        
-        
-            <p style="color:transparent;">Ghost Col</p>
-        </div>
-    
-    <!-- MAIN Desktop CONTENT BLOCK -->
-    <div style="background-color: white;"class="col">
-    </div>
-    <div style="background-image:url({{url_for('static', filename='img/blue2.jpg')}})"class="col">
-    <p style="color:transparent;">Ghost Col</p>
-    </div>
-
-   </div>
+       
      {% else %}
      <div style="padding:0;margin:0;" class="row">    
         <!-- MAIN Mobile CONTENT BLOCK -->
