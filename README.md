@@ -7,4 +7,4 @@ CSS
 
 Deployed on Heroku
 
-<a href="http://www.tshma.herokuapp.com">Working example</a>
+<a href="http://tshma.herokuapp.com/">Working example</a>
