@@ -1,9 +1,7 @@
 # T-shma
 Simple Blog Template
 
-Python - Flask
-HTML
-CSS
+Flask, SqlAlchemy
 
 Deployed on Heroku
 
