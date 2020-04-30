@@ -1,8 +1,12 @@
-# T-shma
-Simple Blog Template
 
-Flask, SqlAlchemy
+## T-shma
 
-Deployed on Heroku
+```
+Flask
+Sqlite
+Bootstrap
+```
+###### Bcrypt, Mobility, Flask-login, WTF Forms, SQLAlchemy
 
-<a href="http://tshma.herokuapp.com/">Working example</a>
+
+<a href="http://tshma.herokuapp.com/">Live Demo</a>
